@@ -36,6 +36,7 @@ if [ ! -d "${CACHE_DIR}/mono" ]; then
   echo "Fetching Mono v${MONO_VERSION} @ ${MONO_PACKAGE}" | indent
   curl ${MONO_PACKAGE} --silent --max-time 600 -o - | tar xzf - -C ${CACHE_DIR}
 fi
+
 cp -r "${CACHE_DIR}/mono" .
 
 echo "-----> Bundling XSP v${XSP_VERSION}"
@@ -44,8 +45,9 @@ if [ ! -d "${CACHE_DIR}/xsp" ]; then
   curl ${XSP_PACKAGE} --silent --max-time 600 -o - | tar xzf - -C ${CACHE_DIR}
 
   echo "Copying libraries to the GAC" | indent
-  cp -r -v ${CACHE_DIR}/xsp/lib/mono/gac/* ${CACHE_DIR}/mono/lib/mono/gac/
+  cp -r -v ${CACHE_DIR}/xsp/lib/mono/gac/* ./mono/lib/mono/gac/
 fi
+
 cp -r "${CACHE_DIR}/xsp" .
 
 # find a solution file
