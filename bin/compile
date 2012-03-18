@@ -45,7 +45,7 @@ if [ ! -d "${CACHE_DIR}/xsp" ]; then
   curl ${XSP_PACKAGE} --silent --max-time 600 -o - | tar xzf - -C ${CACHE_DIR}
 
   echo "Copying libraries to the GAC" | indent
-  cp -r -v ${CACHE_DIR}/xsp/lib/mono/gac/* ./mono/lib/mono/gac/
+  cp -r ${CACHE_DIR}/xsp/lib/mono/gac/* ./mono/lib/mono/gac/
 fi
 
 cp -r "${CACHE_DIR}/xsp" .
