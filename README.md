@@ -10,17 +10,14 @@ Usage
 
 Example usage:
 
-    $ heroku create --stack cedar --buildpack http://github.com/brandur/heroku-buildpack-mono.git
+    $ heroku create --stack cedar --buildpack http://github.com/rodrigoi/heroku-buildpack-mono.git
     $ git push heroku master
 
 The buildpack will detect your app as Mono if it has the file `global.asax` in the root or at one directory depth.
 
-Pre-compiling Binaries
-----------------------
+TODO
+----
 
-Ignore the lines below. For now, building the binaries is a tedious manual process, but a solution will be along shortly.
-
-    $ export AWS_ACCOUNT_ID=xxx AWS_SECRET=yyy S3_BUCKET=zzz
-    $ support/package_mono 2.10.8
-    $ support/package_xsp 2.10.2
-
+1. Add kayak as a lightweight, event based web server.
+2. Add nuget.exe to pull dependencies on commit
+3. Make deploy conditional to unit test success
